@@ -64,13 +64,13 @@ func GetLocale(db *sql.DB, customerID int) (string, error) {
 
 2. __Allowed return type signatures__:
 
-    a. `InsertUser(...)` : Functions that don't return anything will panic if an error occurs.
+    a. `Exec(...)` : Functions that don't return anything will panic if an error occurs.
     
-    b. `InsertUser(...) error` : The return type of a function returning a single value must be `error`. Any panics are caught and returned.
+    b. `Exec(...) error` : The return type of a function returning a single value must be `error`. Any panics are caught and returned.
     
-    c. `InsertUser(...) (int64,int64)` : The first value contains the last insert id, if the underlying database system supports this feature. If not, the value will be 0. Errors will cause the function to panic.
+    c. `Exec(...) (int64,int64)` : The first value contains the last insert id, if the underlying database system supports this feature. If not, the value will be 0. Errors will cause the function to panic.
     
-    d. `InsertUser(...) (int64,int64,error)` : Same as *c*, but errors will be returned.
+    d. `Exec(...) (int64,int64,error)` : Same as *c*, but errors will be returned.
 
     e. Query functions: Can only return `(*type, error)` which wraps panics into the returned error, or `(*type)` which panics on error.
 
