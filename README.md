@@ -7,12 +7,12 @@ This library allows you to do this,
 
 ```go
 type Repo struct {
-    GetLocale(id int64) string `@queryOne:"select locale FROM customers where id = $1"`
+    GetLocale(id int64) *string `@queryOne:"select locale FROM customers where id = $1"`
 } 
 
 var myRepo *Repo
 
-userLocale := myRepo.GetLocale(452, "en_US")
+userLocale := myRepo.GetLocale(452)
 ```
 
 instead of this:
