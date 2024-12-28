@@ -1,4 +1,4 @@
-module github.com/SharkFourix/bsa
+module github.com/SharkFourSix/bsa
 
 go 1.22.6
 

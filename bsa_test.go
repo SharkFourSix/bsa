@@ -7,7 +7,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/SharkFourix/bsa"
+	"github.com/SharkFourSix/bsa"
 	_ "github.com/mattn/go-sqlite3"
 )
 
