@@ -26,3 +26,4 @@ go.work.sum
 test/*
 !test/*.sql
 __debug_bin*
+.idea/
