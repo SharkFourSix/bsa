@@ -202,7 +202,15 @@ func Bind(ctx context.Context, handle DBResource, dst any, qLoder QueryLoader, l
 			case 2: // type, error no panic
 				return func(args []reflect.Value) []reflect.Value {
 					rows, err := Query(args, singleSelection, typ.Out(0))
-					return []reflect.Value{reflect.ValueOf(rows), getErrorValue(err)}
+
+					var rowsValue reflect.Value
+					if rows == nil {
+						rowsValue = reflect.Zero(typ.Out(0))
+					} else {
+						rowsValue = reflect.ValueOf(rows)
+					}
+
+					return []reflect.Value{rowsValue, getErrorValue(err)}
 				}
 			}
 		}
